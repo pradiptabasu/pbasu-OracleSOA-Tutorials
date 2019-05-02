@@ -65,11 +65,14 @@ __**Dynamic Variable values which changes with environment**__
 * 
 * 
 * 
-* 
-*
-* 
-* 
-* 
+
+
+__**Opaque Schema**__
+* https://technology.amis.nl/2014/08/06/opaque-does-not-mean-just-pass-anything-in-it-has-to-be-base64-jca-adapters/
+* https://redthunder.blog/2016/11/22/teaching-how-to-use-the-oracle-osbsoa-jms-adapter-bpel-and-mediator/
+* https://blogs.oracle.com/fusionmiddlewaresupport/jms-step-4-how-to-create-an-11g-bpel-process-which-writes-a-message-based-on-an-xml-schema-to-a-jms-queue-v2
+* http://oraclefuzion.blogspot.com/2011/02/reading-opaque-data-in-bpel.html
+* https://www.tavant.com/blog/osb-tip-proxy-service-which-can-take-any-xml-data-any-jms-queue-oracle-service-bus
 * 
 * 
 * 
