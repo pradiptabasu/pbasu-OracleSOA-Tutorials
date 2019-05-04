@@ -56,6 +56,7 @@ __** One-way & Two-way SSL Setup**__
 * https://technology.amis.nl/2014/08/05/setup-gmail-as-mail-provider-for-soa-suite-12c-configure-smtp-certificate-in-trust-store/
 * https://technology.amis.nl/2019/03/24/running-apache-kafka-on-minikube/
 * https://javaoraclesoa.blogspot.com/2017/05/oracle-soa-suite-two-way-ssl-with-tls12.html
+* https://svgonugu.com/2015/03/06/service-bus-12c-outbound-ssl/
 * 
 * 
 openssl s_client -connect imap.gmail.com:993 > gmail-imap-cert.pem
