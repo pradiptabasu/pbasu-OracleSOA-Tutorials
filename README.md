@@ -77,3 +77,176 @@ You will be asked explicitly whether you trust this certificate [and are certain
 
 
 
+
+
+
+
+# __***REST Adapter SOA calling HTTPS***__
+Please setup the certificates in both the demotrust.jks and trust stripes in EM console
+* https://stackoverflow.com/questions/38232552/oracle-bpel-java-8u92-invoking-rest-service-using-https-gives-ssl-handshake-ex
+* https://serverfault.com/questions/503751/certificate-verification-error-when-sending-a-service-request-from-weblogic
+OK. It will sound wierd but it will work. We have the same SOA 12c setup but we are using Standard Java Trust keystore for managed SOA server.
+
+I can see that you have modified setDomainEnv.sh to specify /u01/data/keystores/truststore.jks as your keystore.
+
+In theory if the root cert is there in the cacerts in my case and truststore.jks in your case it should work. I can confirm that the SOAP services work fine with the keystore.
+
+Somehow invoking REST service through REST adapter was failing due to cert error, same as yours.
+
+Here's what made it to work:
+Login to EM
+Weblogic Domain -> Security -> Keystore
+Select System (stripe) -> trust -> Hit the manage button
+Here import the root cert of geotrustrootca.
+Bounce the SOA server. Test your service. It should work fine.
+
+What I dont understand is: System (stripe) -> trust = This is preconfigured as a demo trust store when you configure a domain. I have already change the keystore setting for managed server to use cacerts. Somehow it looks like this kss trust store is still referenced somewhere. The question is where?
+
+Do share just in case you figure this one out. In the meantime the solution will get you going.
+
+
+
+
+
+# DNS Checker
+* https://dns.google.com/
+
+
+
+
+
+
+
+
+
+
+
+https://stackoverflow.com/questions/47447734/how-to-get-the-ip-address-or-range-of-a-firebase-functions
+https://groups.google.com/forum/#!msg/firebase-talk/eE6kAqDApU8/hgCcTIORCQAJ
+https://stackoverflow.com/questions/27105700/how-to-setup-ec2-security-group-to-allow-working-with-firebase
+
+
+
+https://www.quora.com/How-can-the-Amazon-API-Gateway-be-set-up-to-whitelist-specified-IP-addresses-for-access-to-AWS-Lambda
+
+
+
+
+https://stackoverflow.com/questions/45529020/android-fcm-what-are-the-ips-and-ports-for-firewall
+https://www.dnsqueries.com/en/dns_lookup.php
+https://dnschecker.org/
+https://ipinfo.io/AS15169
+https://bgp.he.net/AS15169
+https://serverfault.com/questions/535936/configuring-firewall-for-google-cloud-messaging-asn-15169
+https://success.trendmicro.com/solution/1060693
+https://firebase.google.com/docs/cloud-messaging/concept-options
+https://www.site24x7.com/community/aws-security-groups-whitelisting
+https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-sg.html
+https://webmasters.stackexchange.com/questions/107411/how-do-i-whitelist-a-user-with-a-dynamic-ip-address-in-godaddy-plesk
+https://serverfault.com/questions/187231/accessing-ip-restricted-server-from-dynamic-ip
+https://community.akamai.com/customers/s/article/The-UGLY-Truth-Behind-the-Practice-of-IP-Whitelisting?language=en_US
+https://securebox.comodo.com/whitelisted/
+https://serverfault.com/questions/919090/aws-lambda-function-to-dynamically-add-and-remove-public-ip-to-security-group
+https://www.rubix.nl/blogs/how-configure-aws-lambda-functions-use-outbound-fixed-ip/
+https://medium.com/financial-engines-techblog/aws-lambdas-with-a-static-outgoing-ip-5174a1e70245
+https://aws.amazon.com/blogs/security/how-to-automatically-update-your-security-groups-for-amazon-cloudfront-and-aws-waf-by-using-aws-lambda/
+https://www.oodlestechnologies.com/blogs/Run-AWS-Lambda-function-with-Static-IP-address/
+
+
+
+
+
+
+SSL for the FCM in SOA
+https://superuser.com/questions/97201/how-to-save-a-remote-server-ssl-certificate-locally-as-a-file
+https://pki.goog/
+http://www.freetutorialssubmit.com/compare-ssl-certificate-and-key-matches-with-openssl/1519
+https://www.digicert.com/csr-ssl-installation/weblogic-8-12x.htm
+https://blogs.oracle.com/jtc/installing-trusted-certificates-into-a-java-keystore
+https://fusionmwgang.wordpress.com/2016/09/01/importing-certificates-in-weblogic-server/
+http://prasaddomala.com/what-is-ssl-and-how-to-configure-ssl-keystores-certificates-for-oracle-weblogic-server/
+https://r12siebel.wordpress.com/2011/09/20/demoidentity-jks-and-demotrust-jks-password/
+http://oraclmiddleware.blogspot.com/2015/07/weblogic-demotrust-demoidentity-default.html
+http://prasaddomala.com/what-is-ssl-and-how-to-configure-ssl-keystores-certificates-for-oracle-weblogic-server/
+http://www.ateam-oracle.com/2-way-ssl-between-soa-and-osb
+https://serverfault.com/questions/503751/certificate-verification-error-when-sending-a-service-request-from-weblogic
+https://dev.tapjoy.com/faq/how-to-find-sender-id-and-api-key-for-gcm/
+https://success.trendmicro.com/solution/1060693
+https://docs.aws.amazon.com/pinpoint/latest/apireference/apps.html
+https://www.site24x7.com/community/aws-security-groups-whitelisting
+https://serverfault.com/questions/187231/accessing-ip-restricted-server-from-dynamic-ip
+https://www.albinsblog.com/2014/03/wildcard-ssl-hostnameverifier-in.html#.XPpgBlwzbIU
+https://thesmartpanda.com/weblogic-wildcard-host-name-verification/
+
+
+https://middlewaresupport.wordpress.com/tag/hostname-verification/
+http://weblogic-wonders.com/weblogic/2010/01/28/troubleshooting-ssl-issues/
+
+
+
+ Modify the wlst.sh script by adding these:
+
+CONFIG_JVM_ARGS="-Dweblogic.security.SSL.ignoreHostnameVerification=true
+-Dweblogic.security.TrustKeyStore=DemoTrust"
+export CONFIG_JVM_ARGS
+
+
+-Dweblogic.security.SSL.ignoreHostnameVerification=true
+-Dweblogic.security.SSL.enforceConstraints
+-Dweblogic.security.SSL.trustedCAKeyStore 
+-Dweblogic.security.SSL.nojce
+
+
+
+These parameters were already added in setDomainEnv.sh:
+
+
+
+How to repoint the SOA database repository using chghost introduced in 12.2.1.3? (Doc ID 2414575.1)
+
+
+NOTE:1340777.1 - Interoperability Between Oracle WebLogic Server 11g and Microsoft.NET WCF 4.0 Using Secure Web Services - Part 1
+NOTE:1340778.1 - Interoperability Between Microsoft.NET WCF 4.0 and Oracle WebLogic Server 11g Using Secure Web Service, Part 2
+How to set Hostname Verification when BPEL invoke SSL SOAP request. (Doc ID 2290896.1)
+Oracle E-Business Suite Integrated SOA Gateway Release Notes for Release 12.2.3 (Doc ID 1603897.1)
+
+
+NOTE:1542834.1 - Accessing Weblogic via HTTPS Fails : SSL Configured to Terminate at OHS - FATAL Alert : BAD_CERTIFICATE in managed server log
+NOTE:1092218.1 - WLS 10.3.x - Unable To Invoke Remote Web Service Due To Error: "Bad_certificate Fatal Error"
+NOTE:2007773.1 - Error: javax.net.ssl.SSLException: Received Fatal Alert: bad_certificate When Starting the P6 Managed Server
+NOTE:1557876.1 - How to Configure Web Services
+NOTE:1311464.1 - javax.net.ssl.SSLKeyException:Fatal Alert:Bad_certificate Received When * found in Certificate Subject
+NOTE:1474989.1 - How To Configure WebLogic Server To Support Wildcard Certificates
+NOTE:1072744.1 - WebCenter/SOA Integration: Unable to Connect to SOA Server Due to FATAL Alert:BAD_CERTIFICATE - A Corrupt or Unuseable Certificate was Received.
+NOTE:1488379.1 - SOA 11g: SSL Error in JDeveloper During Deployment, 'Received Fatal Alert: Bad_certificate'
+NOTE:1225455.1 - E-SSL: Frequently Asked Questions about SSL Certificates on WebLogic
+
+A-Team Blog Reference for SOA Suite, BPM and OSB (Doc ID 1566562.1)
+
+How to setup SOA CS to use CA verified SSL certificates? (Doc ID 2419512.1)
+
+How to Terminate SSL at LBR, Another HTTP Server, Web Cache or OHS 11g - Including Steps for WLS Plugin (mod_wl_ohs) (Doc ID 1569732.1)
+
+SOA 12c: Unable to find a valid certification path to the requested target when invoking an SSL service (Doc ID 1922364.1)
+
+https://stackoverflow.com/questions/38232552/oracle-bpel-java-8u92-invoking-rest-service-using-https-gives-ssl-handshake-ex
+
+https://www.avioconsulting.com/blog/soa-suite-12c-and-opss-keystore-service
+
+
+
+
+
+Changing Oracle 11G SOA Suite Data Source (Repository) Passwords (Doc ID 1339818.1)
+Monitoring, Administering and Troubleshooting Oracle SOA Suite and ADF (Doc ID 1351257.1)
+Diagnosing oracle.xml.parser.v2.XMLParseException in the SOA Suite (Doc ID 1485583.1)
+How to determine if Local Optimization is enabled in Oracle SOA Suite 12c (Doc ID 2081255.1)
+
+
+
+
+
+
+
+
+
