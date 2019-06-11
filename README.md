@@ -247,6 +247,17 @@ How to determine if Local Optimization is enabled in Oracle SOA Suite 12c (Doc I
 
 
 
-
-
+# SSL related Links
+* https://serverfault.com/questions/187231/accessing-ip-restricted-server-from-dynamic-ip
+* https://thesmartpanda.com/weblogic-wildcard-host-name-verification/
+* https://middlewaresupport.wordpress.com/tag/hostname-verification/
+* http://weblogic-wonders.com/weblogic/2010/01/28/troubleshooting-ssl-issues/
+* https://www.techsupper.com/2017/01/hostname-verification-failed.html
+* https://khassoablog.wordpress.com/author/khasim7/page/22/
+* https://erikwramner.wordpress.com/2011/10/31/ssl-issues-with-jdeveloper/
+* https://svgonugu.com/tag/ssl/
+* http://middlewaremagic.com/weblogic/?p=2887
+* 
+* 
+* 
 
