@@ -261,3 +261,45 @@ How to determine if Local Optimization is enabled in Oracle SOA Suite 12c (Doc I
 * 
 * 
 
+
+
+__** Flow trace Instance assosiation **__
+* https://community.oracle.com/thread/4176784
+* https://blog.darwin-it.nl/2018/09/split-your-flow-trace-in-bpel.html
+* https://blog.darwin-it.nl/2018/09/split-your-flow-trace-in-bpel.html
+* Decouple child instances from parent instance tree in SOA 11g (Doc ID 2278472.1)
+* https://beatechnologies.wordpress.com/tag/oracle-soa-suite-11g/
+* https://www.avioconsulting.com/blog/five-tools-debugging-oracle-soa-suite
+* https://technology.amis.nl/2014/06/26/soa-suite-12c-first-look-at-sca-composite-features/
+* https://dzone.com/articles/running-mediator-instances
+* https://www.ateam-oracle.com/retrieve-bpel-payload-from-the-database-2
+* https://docs.oracle.com/middleware/1221/osb/develop/GUID-560C6AB9-5FA3-4EC2-8D5E-7D27D16F4BFC.htm#OSBDV1753
+* https://docs.oracle.com/middleware/11119/osb/develop/bpelpm.htm
+* http://thoughtmate.blogspot.com/2010/11/ora-bpel-thru-osb-associating-message.html
+* https://www.ateam-oracle.com/how-to-find-purgeable-instances-in-soabpm-12c
+* https://www.orafaq.com/aggregator/sources/278?page=1
+* https://docs.oracle.com/en/middleware/soa-suite/soa/12.2.1.3/administer/tracking-business-flow-instances.html#GUID-A6CAAB62-CD73-4D52-8E80-0B618B3C5B82
+* https://tungsten.io/tracing-flows-through-virtual-networks-and-service-instances-in-openstack-and-opencontrail/
+* https://thecattlecrew.net/2013/11/12/monitoring-large-flow-traces-with-oracle-soa-suite/
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
