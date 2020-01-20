@@ -303,3 +303,28 @@ __** Flow trace Instance assosiation **__
 * 
 * 
 * 
+
+
+
+
+# SOA Async Process
+* http://soacrux.blogspot.com/2012/03/invoking-soa11g-composite-using-direct.html
+* https://javaoraclesoa.blogspot.com/2012/08/issues-and-solutions-when-testing-and.html
+* https://javaoraclesoa.blogspot.com/2016/02/asynchronous-interaction-in-oracle-bpel.html
+* http://ofmdeveloper.blogspot.com/2012/03/difference-between-async-sync-bpel.html
+* https://oraclesoasolution.blogspot.com/2016/12/soa-11g-cloning.html?m=1
+* http://soa-bpel-esb.blogspot.com/2010/06/
+* https://www.mtroyal.ca/_ocsh/help/topics/help_urm_setup_urm_setup_html_help_rmdsg/help/cs_admin/cs_sysadmin_html_help/c05_security014.htm?tp=true&locale=en
+* http://tomhofte.blogspot.com/2009/
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
