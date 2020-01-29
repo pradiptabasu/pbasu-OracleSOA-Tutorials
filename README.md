@@ -321,10 +321,15 @@ __** Flow trace Instance assosiation **__
 * 
 * 
 * 
-* 
-* 
-* 
-* 
-* 
+
+# Mediator and Resequencing
+* https://www.ateam-oracle.com/11g-mediator-diagnosing-resequencer-issues
+* https://www.zirous.com/2018/01/16/oracle-soa-suite-mediator-resequencer/
+* https://www.avioconsulting.com/blog/getting-testy-soa-11g-part-1-integration-service-pattern
+* DB Table in SOAINFRA : 
+The Resequencer uses two tables in the SOAINFRA database to persist and manage transactions:
+
+Mediator_Resequencer_Message – Stores meta-data about the transaction
+Mediator_Group_Status – Stores Group related information about the transaction
 * 
 * 
